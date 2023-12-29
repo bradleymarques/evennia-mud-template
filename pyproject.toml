@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "space-mud"
-version = "0.1.0"
-description = ""
+name = "evennia-mud-template"
+version = "1.0.0"
+description = "A template repository for creating MUDs with [Evennia](https://www.evennia.com/)."
 authors = ["Bradley Marques <bradleyrcmarques@gmail.com>"]
 readme = "README.md"
 
