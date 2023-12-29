@@ -60,7 +60,7 @@ jobs:
       - name: Run tests with coverage
         run: |
           source .venv/bin/activate
-          evennia test --settings settings.py
+          coverage run -m evennia test --settings settings.py
 
       - name: Post code coverage comment to GitHub
         id: coverage_comment
