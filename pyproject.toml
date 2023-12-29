@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "space-mud"
+version = "0.1.0"
+description = ""
+authors = ["Bradley Marques <bradleyrcmarques@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.6"
+evennia = "^3.0.0"
+python-dotenv = "^1.0.0"
+ipython = "^8.19.0"
+black = "^23.12.1"
+pre-commit = "^3.6.0"
+coverage = "^7.4.0"
+pycln = "^2.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+
+[tool.coverage.run]
+omit = [
+  "*/__init__.py",
+  "commands/default_cmdsets.py",
+  "server/conf/at_server_startstop.py",
+  "server/conf/settings.py",
+  "*/tests/test_*.py",
+]
+
+[tool.coverage.report]
+ignore_errors = true
+
+[tool.coverage.html]
+directory = "coverage_html_report"
+branch = true
+relative_files = true
