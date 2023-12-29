@@ -1,5 +1,7 @@
 # Evennia MUD template
 
+[![Coverage badge](https://raw.githubusercontent.com/bradleymarques/evennia-mud-template/python-coverage-comment-action-data/badge.svg)](https://htmlpreview.github.io/?https://github.com/bradleymarques/evennia-mud-template/blob/python-coverage-comment-action-data/htmlcov/index.html)
+
 A template repository for creating MUDs with [Evennia](https://www.evennia.com/).
 
 ## What's included?
@@ -11,7 +13,8 @@ A template repository for creating MUDs with [Evennia](https://www.evennia.com/)
   - [Pycln](https://hadialqattan.github.io/pycln/#/) for detecting and removing unused imports
   - [isort](https://pycqa.github.io/isort/) for automatically sorting imports
 - [Coverage](https://coverage.readthedocs.io/en/7.4.0/)
-- GitHub actions for unit tests
+- GitHub action for running unit tests with coverage
+- [GitHub action](https://github.com/marketplace/actions/python-coverage-comment) for posting coverage report on PRs into `main`
 - Basic folder structure
 - Some useful scripts
 
