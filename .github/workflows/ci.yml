@@ -8,13 +8,14 @@ on:
 
 jobs:
   test:
-    name: CI
+    name: Run tests & display coverage
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      # ================================================================================
 
       - name: Set up python
         id: setup-python
@@ -57,7 +58,20 @@ jobs:
           source .venv/bin/activate
           pycln . --check
 
-      - name: Run tests
+      - name: Run tests with coverage
         run: |
           source .venv/bin/activate
-          evennia test --settings settings.py
+          coverage run -m evennia test --settings settings.py
+
+      - name: Coverage comment
+        id: coverage_comment
+        uses: py-cov-action/python-coverage-comment-action@v3
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Store Pull Request comment to be posted
+        uses: actions/upload-artifact@v4
+        if: steps.coverage_comment.outputs.COMMENT_FILE_WRITTEN == 'true'
+        with:
+          name: python-coverage-comment-action
+          path: python-coverage-comment-action.txt
